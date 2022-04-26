@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANF-tv Admin webapp">
+  <link rel="icon" type="image/png" href="../Images/tv logo 2.png"/>
+  <title>ANF-Admin</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/admin-login.css">
+</head>
+<body>
+  <div id="modal-back">
+      <p id="modal-on">
+        
+      </p>
+  </div>
+  <div id="form-container">
+      <form id="form" method="post">
+        <h2 id="login-form-header">
+          ANF-tv Admin Login
+        </h2>
+        <div id="response-container">
+          <p id="response">
+      
+          </p>
+        </div>
+        <div id="username">
+          <label for="username" id="username-label">
+            Username
+          </label>
+          <input type="text" name="username" id="username-input">
+        </div>
+        <div id="password">
+          <label for="password" id="password-label">
+            Password
+          </label>
+          <input type="password" name="password" id="password-input">
+          
+        </div>
+        <div id="remember">
+          <label for="remember" id="remember">
+            Remember me
+          </label>
+          <input type="checkbox" name="checkbox" id="checkbox">
+        </div>
+        <div id="submit">
+          <input type="submit" value="Login" id="login">
+        </div>
+      </form>
+  </div>
+  <script src="../javascripts/index.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  // alert('done');
+}
+
+$(function() {
+  $(document).ready(function () {
+    if ($( "#modal" ).hasClass('modal')) {
+	$( "#modal" ).removeClass( 'modal');
+	$( "#modal-back" ).removeClass( 'modal-back');
+  $( "#modal-back" ).addClass( "modal-off" );
+}
+});
+  $('#form').submit(function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser
+        var userName = $("#username-input").val().toLowerCase();
+        var password = $("#password-input").val();
+        var login = {
+              userName,
+              password
+        };
+        var loginData = JSON.stringify(login);
+        if (userName == "" || password == "") {
+          console.log('Please check your inputs');
+          $("#response").html('Please check your inputs');
+        } else {
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        url: '/users/signin',
+        data: loginData,
+        processData: false,
+        success: function (response) {
+        // console.log('success');
+        console.log(response);
+        if (response.status === "success") {
+          // $("#response").html(response.message);
+          $("#modal-on").html(response.message);
+          $( "#modal-on" ).addClass( 'modal-on');
+          $( "#modal-back" ).addClass( 'modal-back');
+          $( "#modal-back" ).removeClass( "modal-off" );
+          // alert(response.accessToken);
+          setCookie("token", response.accessToken, 1);
+          setCookie("userName", response.data.userName, 1);
+          setCookie("email", response.data.email, 1);
+          setTimeout(function(){
+              window.location = "admin-landing.html";
+              }, 1000);
+        }
+
+        // Optionally alert the user of success here...
+      },
+        error: function(xhr, status, error) {
+        let err = JSON.parse(xhr.responseText);
+        // console.log('failed');
+        // console.log(error);
+        // console.log(err.message);
+        // console.log(status);
+        $("#response").html(err.message);
+        // Optionally alert the user of an error here...
+        }
+  });
+}
+});
+});
+
+  </script>
+</body>
+</html>

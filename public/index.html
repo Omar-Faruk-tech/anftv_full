@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANF-tv Official website">
+  <link rel="icon" type="image/png" href="./Images/tv logo 2.png"/>
+  <meta name="keywords" content="news,anf,tv,politics,sports,business,culture,africa,nigeria,entertainment,science,technology">
+  <title>ANF-tv</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./stylesheets/header.css">
+  <link rel="stylesheet" href="./stylesheets/main.css">
+  <link rel="stylesheet" href="./stylesheets/footer.css">
+</head>
+<body>
+  <div class="modal" id="modal-background" onclick="closeNav()">
+    <div>
+      <i id="close" onclick="closeNav()" class="fas fa-times"></i>
+    </div>
+      <div class="news-categories-mobile">
+        <ul id="news-list-container-mobile" class="news-cat-container">
+          <li id="news-mobile">
+            <a href="./index.html" class="nav-a-link" id="news-link">News</a>
+          </li>
+          <li id="politics-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="politics-link">Politics</a>
+          </li>
+          <li id="sports-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="sports-link">Sports</a>
+          </li>
+          <li id="culture-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="culture-link">Culture</a>
+          </li>
+          <li id="business-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="business-link">Business</a>
+          </li>
+          <li id="entertainment-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="entertainment-link">Entertainment</a>
+          </li>
+          <li id="science-technology-mobile">
+            <a href="./html/category.html" class="nav-a-link" id="science-technology-link">Technology</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <header id="header">
+      <nav id="navbar">
+        <div id="logo">
+          <img src="./Images/Untitled-2.png" alt="ANF-tv">
+        </div>
+        <div id="news-categories">
+          <ul id="news-list-container" class="news-cat-container">
+            <li id="news">
+              <a href="./index.html" class="nav-a-link" id="news-link">News</a>
+            </li>
+            <li id="politics">
+              <a href="./html/category.html" id="politics-link" class="nav-a-link">Politics</a>
+            </li>
+            <li id="sports">
+              <a href="./html/category.html" id="sports-link" class="nav-a-link">Sports</a>
+            </li>
+            <li id="culture">
+              <a href="./html/category.html" id="culture-link" class="nav-a-link">Culture</a>
+            </li>
+            <li id="business">
+              <a href="./html/category.html" id="business-link" class="nav-a-link">Business</a>
+            </li>
+            <li id="entertainment">
+              <a href="./html/category.html" id="entertainment-link" class="nav-a-link">Entertainment</a>
+            </li>
+            <li id="science-technology">
+              <a href="./html/category.html" id="science-technology-link" class="nav-a-link">Technology</a>
+            </li>
+          </ul>
+        </div>
+        <div id="search">
+          <input type="search" name="search" placeholder="Search" id="search-input">
+          <button id="search-button">
+            <img id="search-img" src="./Images/Search.png" alt="search-icon" id="search-icon">
+          </button>
+        </div>
+        <div id="hamburger" onclick="openNav()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+      <hr id="nav-border">
+    <div id="top-stories"><span style="display: none;" id="id-store-1"></span>
+      <div id="subject-container">
+          <h1 id="subject">
+           Welcome to ANF-tv Official website
+          </h1>
+        </div>
+        <div id="image-container">
+          <img style="display: none;" src="./Images/loading.png" alt="top-story-image" id="top-story-img">
+          <!-- <iframe style="display: none;" src="./public/Images/loading.png" frameborder="0" autoplay="0" id="top-story-vid"></iframe> -->
+          <video  src="" id="top-story-vid"></video>
+        </div>
+        <div id="slide-icon-container">
+          <div class="slide-icon "></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+          <div class="slide-icon"></div>
+        </div></div>
+    
+  </header>
+  <main id="hero">
+    <div id="panel-div">
+    <section id="left-panel">
+      <div id="left-hero-display-card">
+          <h2 id="left-hero-header">
+              TOP STORIES
+          </h2>
+          <div id="news-panel">
+
+            <div class="news-card">
+            <a class="news card-link">
+         
+            
+            </a>
+
+            <a class="news card-link">
+
+             
+              </a>
+
+            <a class="news card-link">
+
+             
+              </a>
+
+            <a class="news card-link">
+
+             
+              </a>
+
+            <a class="news card-link">
+             
+              
+              </a>
+            </div>
+            
+
+
+          </div>
+      </div>
+    </section>
+    <section id="right-panel">
+      <div id="editors-pick">
+          <h2 id="editors-pick-header">
+            EDITORS PICK
+          </h2>
+          <ul id="editors-pick-container">
+
+          </ul>
+      </div>
+      <div id="featured">
+        <h2 id="featured-header">
+          FEATURED
+        </h2>
+        <ul id="featured-links">
+          
+        </ul>
+      </div>
+    </section>
+    </div>
+    <br>
+  <div id="category-div">
+    <section id="categories">
+     
+      <div id="politics-card" class="politics-card card">
+        
+      </div>
+      
+      <div id="sports-card" class="sports-card card">
+        
+      </div>
+      
+      <div id="culture-card" class="culture-card card">
+        
+      </div>
+      
+      <div id="entertainment-card" class="entertainment-card card">
+      </div>
+      
+      <div id="business-card" class="business-card card">
+       
+      </div>
+     
+      <div id="technology-card" class="Science card">
+        
+      </div>
+
+    </section>
+  </div>
+  </main>
+  <footer id="footer">
+    <div id="anf-tv-ads">
+      <img class="footer-ads-img" src="./Images/Untitled-2.png" alt="" id="ad-img">
+    </div>
+    <div id="footer-nav">
+      <div id="left-p">
+        <p id="company" class="footer-p">
+          <a class="footer-p-link" href="">Company </a>
+        </p>
+      </div>
+      <div id="center-icon">
+        <img src="./Images/Untitled-2.png" alt="Company Icon" id="company-icon" class="company-icon">
+      </div>
+      <div id="right-p">
+        <p id="helpdesk" class="footer-p">
+          <a class="footer-p-link" href=""> Helpdesk </a>
+        </p>
+      </div>
+    </div>
+    <hr style="border: #2201f9 solid 0.5px;">
+    <div id="footer-contact">
+      <a href="https://web.facebook.com/watch/ANFTV.NET/" target="_blank">
+      <i class="fab fa-facebook"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCsGp2q5PC4i9zuOgx850fbQ" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p id="footer-copy-right">
+      © ANF-tv, Inc. 2022. Thank you for visiting.
+    </p>
+  </footer>
+  <script src="./javascripts/index.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  // alert('done');
+}
+
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function shortenStr(str, num = 200) {
+      let newStr = '';
+      let shortStr = str.split("").splice(0, num).join("");
+      if (str.length > num) {
+        newStr = `${shortStr}...`
+        return newStr;
+      }
+      newStr = `${str}.....`
+      return newStr
+    };
+
+    function startCounter(num) {
+
+      if (num >= 4) {
+        num = 0;
+      } else {
+        num = num + 1;
+      }
+      return num;
+    };
+
+    function storeId(data, container) {
+      let span = document.createElement('span');
+      span.style.display = "none";
+      // span.id = data.id;
+      span.innerHTML = data._id;
+      container.insertBefore(span, container.childNodes[0])
+    };
+    function checkMediaType(b64) {
+    let b64Type = b64.split(",")[0];
+    if (b64Type.includes("image")) {
+      return "image";
+    } else if (b64Type.includes("video")) {
+      return "video";
+    } else {
+      return "unknown";
+    }
+    };
+    
+    // console.log('counter =', startCounter(6));
+
+    var topStoryLinks = document.getElementsByClassName("news card-link");
+    var topStorySlides = document.getElementById('top-stories');
+    var topStoryContainer = document.getElementsByClassName("card-link");
+    var editorsContainer = document.getElementById("editors-pick-container");
+    var featuredContainer = document.getElementById("featured-links");
+    var catContainer = document.getElementsByClassName("card");
+    var sub = document.getElementById('subject');
+    // console.log(sub);
+    var img = document.getElementById('top-story-img');
+    var vid = document.getElementById('top-story-vid');
+    var slideIcon = document.getElementsByClassName('slide-icon');
+
+    $(document).ready(function () {
+
+      $.ajax({
+        type: "GET",
+        url: '/landing',
+
+        success: function (response) {
+        
+
+        const topStories = response[0];
+        const editorsPick = response[1];
+        const featured = response[2];
+        const topInCat = response[3];
+
+        
+
+        // setInterval(() => {
+        //   let mediaType = checkMediaType(topStories[current].media);
+        //   // console.log(checkMediaType(topStories[current].media));
+        //   let idStore = document.getElementById('id-store-1');
+        //   // if (topStorySlides.firstChild.nodeName == "span") {
+        //   //   idStore.innerHTML = topStories[current].id;
+        //   // } else {
+        //     // storeId(topStories[current], topStorySlides);
+        //   // };
+        //   idStore.innerHTML = topStories[current]._id;
+        //   sub.innerHTML = shortenStr(topStories[current].subject, 40);
+        //   if (mediaType == "video") {
+        //       img.style.display = "none";
+        //       vid.style.display = "block";
+        //       vid.src = topStories[current].media;
+        
+        //   } else if (mediaType == "image") {
+        //     vid.style.display = "none";
+        //     img.style.display = "block";
+        //     img.src = topStories[current].media;
+            
+        //   };
+          
+        //   for (let i = 0; i < slideIcon.length; i++) {
+        //     if (slideIcon[i].classList.contains('current-slide-icon')) {
+        //       slideIcon[i].classList.remove('current-slide-icon');
+        //     }
+        //   };
+        //   current = startCounter(current);
+        //   slideIcon[current].classList.add('current-slide-icon');
+        // }, 6000);
+        let current = 0;
+        function changeImg() {
+          let mediaType = checkMediaType(topStories[current].media);
+          let idStore = document.getElementById('id-store-1');
+          idStore.innerHTML = topStories[current]._id;
+          sub.innerHTML = shortenStr(topStories[current].subject, 40);
+          if (mediaType == "video") {
+              img.style.display = "none";
+              vid.style.display = "block";
+              vid.src = topStories[current].media;
+          } else if (mediaType == "image") {
+            vid.style.display = "none";
+            img.style.display = "block";
+            img.src = topStories[current].media;
+          };
+          for (let i = 0; i < slideIcon.length; i++) {
+          if (slideIcon[i].classList.contains('current-slide-icon')) {
+            slideIcon[i].classList.remove('current-slide-icon');
+          }
+          };
+          current = startCounter(current);
+          slideIcon[current].classList.add('current-slide-icon');
+          setTimeout(() => {
+            changeImg();
+          }, 6000);
+        };
+
+        window.onload = changeImg();
+
+        for (let i = 0; i < topStoryContainer.length; i++) {
+          // for top stories
+          let mediaType = checkMediaType(topStories[i].media);
+          storeId(topStories[i], topStoryContainer[i]);
+          if (mediaType == "image") {
+            var topMedia = document.createElement('img');
+            topMedia.classList.add('news-card-img');
+            topMedia.setAttribute("alt", "news image");
+            topMedia.src = topStories[i].media;
+          } else if (mediaType == "video") {
+            var topMedia = document.createElement('video');
+            topMedia.classList.add('news-card-img');
+            topMedia.src = topStories[i].media;
+          }
+          
+          var topPara = document.createElement('p');
+          topPara.innerHTML = shortenStr(topStories[i].subject, 80);
+          topPara.classList.add('news-card-title');
+
+          if (topStoryContainer[i]) {
+            topStoryContainer[i].appendChild(topMedia);
+            topStoryContainer[i].appendChild(topPara);
+          };
+        }
+        // console.log(editorsPick);
+        let len = editorsPick.length;
+        if(editorsPick.len > 30) {
+          len = 30;
+        };
+          for (let i = 0; i < len; i++) {
+            // for editors pick
+          if (editorsPick[i]) {
+          let editorsList = document.createElement('li');
+          let editorsListWrap = document.createElement('a');
+          editorsList.classList.add('editors-pick-list');
+          editorsListWrap.classList.add('editors-pick-link');
+          storeId(editorsPick[i], editorsListWrap);
+          editorsListWrap.appendChild(editorsList);
+          
+          
+            editorsList.innerHTML = shortenStr(editorsPick[i].subject, 80);
+            editorsContainer.appendChild(editorsListWrap);
+          };
+            
+          };
+          for (let i = 0; i < 30; i++) {
+             // for featured
+          if (featured[i]) {
+          var featuredList = document.createElement('li');
+          let featuredListWrap = document.createElement('a');
+          featuredListWrap.classList.add('featured-list-link')
+          featuredList.classList.add('featured-list');
+          storeId(featured[i], featuredListWrap);
+          featuredListWrap.appendChild(featuredList);
+          
+          
+            featuredList.innerHTML = shortenStr(featured[i].subject, 80);
+            featuredContainer.appendChild(featuredListWrap);
+          };
+            
+          };
+          // console.log(topInCat[0].id);
+          for (let i = 0; i < 6; i++) {
+             // for categories
+             
+        if (topInCat[i]) {
+          let mediaType = checkMediaType(topStories[i].media);
+          if (mediaType == "image") {
+            let catCardImg = document.createElement('img');
+            catCardImg.classList.add('category-card-img');
+            catCardImg.src = topInCat[i].media;
+            catCardImg.setAttribute("alt", "news image");
+            catContainer[i].appendChild(catCardImg);
+          } else if (mediaType == "video") {
+            let catCardImg = document.createElement('video');
+            catCardImg.classList.add('category-card-vid');
+            catCardImg.src = topInCat[i].media;
+            catContainer[i].appendChild(catCardImg);
+          };
+          let catCardp = document.createElement('p');
+          catCardp.classList.add('category-card-p');
+          catCardp.innerHTML = shortenStr(topInCat[i].subject, 80);
+          let catCardh = document.createElement('h3');
+          catCardh.classList.add('card-header');
+          catCardh.innerHTML = topInCat[i].category;
+
+          // storeId(topInCat[i], catContainer[i]);
+          catContainer[i].insertBefore(catCardh, catContainer[i].childNodes[0]);
+          // catContainer[i].appendChild(catCardh);
+          catContainer[i].appendChild(catCardp);
+          }
+          
+            
+          };
+
+        // add modal class on success
+      },
+        error: function(xhr, status, error) {
+          // console.log(xhr);
+        let resError = xhr.statusText
+       console.log('error');
+       console.log(resError);
+        $("#response").html(resError);
+        // Optionally alert the user of an error here...
+        }
+  });
+
+    });
+
+    $('.card-link, #top-stories, .editors-pick-link, .featured-list-link').on("click", function() {
+      let span = $(this).children()[0].innerHTML;
+      console.log(span);
+      $.ajax({
+        type: "GET",
+        url: `/news/${span}`,
+        success: function(response) {
+          // console.log(response.category);
+          sessionStorage.setItem('clickedNews', JSON.stringify(response));
+          window.location = "./html/single-view.html"
+        },
+        error: function(xhr, status, error) {
+          // console.log(xhr)
+        }
+      })
+    });
+
+    $(".card").on("click", function() {
+      window.location = "./html/category.html";
+    });
+  </script>
+</body>
+</html>

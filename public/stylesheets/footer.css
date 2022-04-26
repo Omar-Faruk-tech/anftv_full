@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer{
+  font-family: 'Acme', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: center; */
+  width: 100%;
+}
+#anf-tv-ads{
+  width: 30%;
+  object-fit: cover;
+  align-self: center;
+}
+.footer-ads-img{
+  width: 100%;
+}
+#footer-nav{
+  width: 100%;
+  display: flex;
+  color: #2201f9;
+  margin: 10px auto;
+}
+#left-p{
+  width: 45%;
+  text-align: left;
+  margin: auto 50px;
+}
+#right-p{
+  width: 45%;
+  text-align: right;
+  margin: auto 50px;
+}
+#center-icon{
+  width: 5%;
+}
+#center-icon #company-icon{
+  object-fit: cover;
+}
+.footer-p-link{
+  color: #2201f9;
+}
+#footer-contact{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #2201f9;
+  font-size: 25px;
+}
+#footer-contact a{
+  text-decoration: none;
+  color: #2201f9;
+}
+.fab{
+  padding: 15px;
+}
+#footer-copy-right{
+  color: #2201f9;
+  margin: 5px auto 100px auto;
+}
+a{
+  text-decoration: none;
+}
+@media(max-width: 750px){
+  #center-icon{
+    width: 30%;
+  }
+  #footer-nav #left-p{
+    width: 50%;
+  }
+  #footer-nav #left-p .footer-p-link{
+    text-align: left;
+  }
+}
+@media(max-width: 500px){
+  #center-icon{
+    display: none;
+  }
+  .footer-p{
+    font-size: 13px;
+  }
+  #footer-nav{
+    max-width: 100vw;
+  }
+
+}

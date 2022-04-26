@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANF-tv Official website">
+  <link rel="icon" type="image/png" href="../public/Images/tv logo 2.png"/>
+  <meta name="keywords" content="news,anf,tv,politics,sports,business,culture,africa,nigeria,entertainment,science,technology">
+  <title>ANF-tv</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/header.css">
+  <link rel="stylesheet" href="../stylesheets/add-news.css">
+  <link rel="stylesheet" href="../stylesheets/footer.css">
+</head>
+<body >
+  <div id="modal-back">
+    <p id="modal-on">
+      
+    </p>
+</div>
+<div id="preview-back">
+  <div id="preview">
+    <p id="preview-subject">
+      
+    </p>
+    <p id="preview-category">
+  
+    </p>
+    <p id="preview-checkbox">
+  
+    </p>
+    <p id="preview-media">
+      
+    </p>
+    <p id="preview-content">
+      
+    </p>
+    <p id="preview-buttons">
+      <button id="confirm">Confirm</button>
+      <button id="back">Back</button>
+    </p>
+    <p id="response2">
+    </p>
+  </div>
+</div>
+<div class="modal" id="modal-background" onclick="closeNav()">
+  <div>
+    <i id="close" onclick="closeNav()" class="fas fa-times"></i>
+  </div>
+    <div class="news-categories-mobile">
+      <ul id="news-list-container-mobile" class="news-cat-container">
+        <li id="news-mobile">
+          <a href="../index.html" class="nav-a-link" id="news-link">News</a>
+        </li>
+        <li id="politics-mobile">
+          <a href="./category.html" class="nav-a-link" id="politics-link">Politics</a>
+        </li>
+        <li id="sports-mobile">
+          <a href="./category.html" class="nav-a-link" id="sports-link">Sports</a>
+        </li>
+        <li id="culture-mobile">
+          <a href="./category.html" class="nav-a-link" id="culture-link">Culture</a>
+        </li>
+        <li id="business-mobile">
+          <a href="./category.html" class="nav-a-link" id="business-link">Business</a>
+        </li>
+        <li id="entertainment-mobile">
+          <a href="./category.html" class="nav-a-link" id="entertainment-link">Entertainment</a>
+        </li>
+        <li id="science-technology-mobile">
+          <a href="./category.html" class="nav-a-link" id="science-technology-link">Technology</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <header id="header">
+    <nav id="navbar">
+      <div id="logo">
+        <img src="../Images/Untitled-2.png" alt="ANF-tv">
+      </div>
+      <div id="news-categories">
+        <ul id="news-list-container" class="news-cat-container">
+          <li id="news">
+            <a href="../index.html" class="nav-a-link" id="news-link">News</a>
+          </li>
+          <li id="politics">
+            <a href="./category.html" id="politics-link" class="nav-a-link">Politics</a>
+          </li>
+          <li id="sports">
+            <a href="./category.html" id="sports-link" class="nav-a-link">Sports</a>
+          </li>
+          <li id="culture">
+            <a href="./category.html" id="culture-link" class="nav-a-link">Culture</a>
+          </li>
+          <li id="business">
+            <a href="./category.html" id="business-link" class="nav-a-link">Business</a>
+          </li>
+          <li id="entertainment">
+            <a href="./category.html" id="entertainment-link" class="nav-a-link">Entertainment</a>
+          </li>
+          <li id="science-technology">
+            <a href="./category.html" id="science-technology-link" class="nav-a-link">Technology</a>
+          </li>
+        </ul>
+      </div>
+      <div id="search">
+        <input type="search" name="search" placeholder="Search" id="search-input">
+        <button id="search-button">
+          <img id="search-img" src="../Images/Search.png" alt="search-icon" id="search-icon">
+        </button>
+      </div>
+      <div id="hamburger" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    <hr id="nav-border">
+      <details id="user">
+        <summary id="user-summary">
+          User  
+        </summary>
+        <p id="user-profile">
+          Profile
+        </p>
+        <p onclick="logOut()" id="user-logout">
+          logout
+        </p>
+      </details>
+    </header>
+  
+  <main id="add-news-main">
+    <section id="form-section">
+      <form id="form" method="post" action="">
+        
+        <h2 id="form-header">
+          Add News
+        </h2>
+        <input type="text" name="subject" placeholder="Subject" id="subject-input">
+        <input list="categories" name="category" placeholder="category" id="category">
+        <datalist id="categories">
+          <option value="Politics">
+          <option value="Sports">
+          <option value="Culture">
+          <option value="Business">
+          <option value="Entertainment">
+          <option value="Technology">
+        </datalist>
+        <div id="checkboxes">
+        <label for="top-story">Top story</label>
+        <input type="checkbox" name="top-story" id="top-story">
+        <label for="editors-pick">Editor's pick</label>
+        <input type="checkbox" name="editors-pick" id="editors-pick">
+        </div>
+        <div id="media">
+          <label for="media" id="media-upload-label">Media</label>
+          <input type="file"  id="media-upload-input" name="media" accept="video/*image/*">
+      </div>
+      <!-- <div id="link">
+        <label for="link" id="link-label">Link</label>
+        <input type="text"  id="link-input" name="link">
+    </div> -->
+      <textarea name="news" id="content" placeholder="News content"></textarea>
+      <div id="response-container">
+        <p id="response">
+        </p>
+      </div>
+      <div id="submit-container">
+      <input type="submit" value="Add" id="add-news-submit">
+      </div>
+      </form>
+      
+    </section>
+  </main>
+  <footer id="footer">
+    <div id="anf-tv-ads">
+      <img class="footer-ads-img" src="../Images/Untitled-2.png" alt="" id="ad-img">
+    </div>
+    <div id="footer-nav">
+      <div id="left-p">
+        <p id="company" class="company">
+          <a class="footer-p-link" href="">Company </a>
+        </p>
+      </div>
+      <div id="center-icon">
+        <img src="../Images/Untitled-2.png" alt="Company Icon" id="company-icon" class="company-icon">
+      </div>
+      <div id="right-p">
+        <p id="helpdesk" class="helpdesk">
+          <a class="footer-p-link" href=""> Help desk </a>
+        </p>
+      </div>
+    </div>
+    <hr style="border: #2201f9 solid 0.5px;">
+    <div id="footer-contact">
+      <a href="https://web.facebook.com/watch/ANFTV.NET/" target="_blank">
+      <i class="fab fa-facebook"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCsGp2q5PC4i9zuOgx850fbQ" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p id="footer-copy-right">
+      © ANF-tv, Inc. 2022. Thank you for visiting.
+    </p>
+  </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="../javascripts/index.js"></script>
+  <script type="text/javascript">
+
+const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+
+  function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+$(document).ready(function () {
+  // remove modal on load of page
+  if ($( "#modal-back" ).hasClass('modal-back')) {
+	$( "#modal" ).removeClass( 'modal');
+	$( "#modal-back" ).removeClass( 'modal-back');
+  $( "#modal-back" ).addClass( "modal-off" );
+  $( "#preview-back" ).removeClass( 'preview-back');
+  $( "#preview" ).removeClass( 'preview');
+  $('#preview-buttons').css('display', 'none');
+}
+  let userName = getCookie("userName");
+  userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+  if (userName) {
+    $("#user-summary").html(userName);
+  }
+  });
+$('#add-news-submit').click(function(event) {
+  event.preventDefault(); // Prevent the form from submitting via the browser
+
+  let uploadedFile = document.getElementById('media-upload-input').files[0];
+  if (!uploadedFile) {
+    // console.log('Please attach media');
+          $("#response").html('Please attach media');
+  } else {
+    if ($( "#modal-back" ).hasClass('modal-back')) {
+	$( "#modal" ).removeClass( 'modal');
+	$( "#modal-back" ).removeClass( 'modal-back');
+  $( "#modal-back" ).addClass( "modal-off" );
+  $( "#preview-back" ).removeClass( 'preview-back');
+  $( "#preview" ).removeClass( 'preview');
+  $('#preview-buttons').css('display', 'none');
+}
+
+
+    toBase64(uploadedFile)
+  .then((res) => {
+    // console.log(res);
+    let mediaBase64 = res;
+    // console.log(mediaBase64);
+    var subject = $("#subject-input").val();
+        var category = $("#category").val().toLowerCase();
+        var editorsPick = $("#editors-pick").prop('checked');
+        var topStory = $("#top-story").prop('checked');
+        var media = mediaBase64;
+        var content = $("#content").val();
+        // console.log(editorsPick);
+        // console.log(topStory);
+        var news = {
+              subject,
+              category,
+              topStory,
+              editorsPick,
+              media,
+              content
+        };
+        // console.log(content);
+        var newsData = JSON.stringify(news);
+        if ((subject == "") || 
+            (category == "") || 
+            (media == "") || 
+            (content == "")) {
+          // console.log('Please fill all input fields');
+
+          $("#response").html('Please fill all input fields');
+        } else {
+      $( "#preview-back" ).addClass( 'preview-back');
+      $( "#preview" ).addClass( 'preview');
+      $('#preview').css('display', 'block');
+      $('#preview-buttons').css('display', 'block');
+      $("#preview-subject").html(`Subject: <br> ${subject}<br><br>`);
+      $("#preview-category").html(`Category: <br> ${category} <br><br>`);
+      $("#preview-checkbox").html(`<span>Top Story: ${topStory}</span> <br><br>
+      <span>Editors Pick: ${editorsPick}</span><br><br>`);
+      $("#preview-media").html(`Media: <br> ${uploadedFile.name}<br><br>`);
+      $("#preview-content").html(`Content: <br> ${content}<br><br>`);
+
+    
+  $('#confirm').click(function() {
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        url: '/news/create',
+        data: newsData,
+        processData: false,
+        success: function (response) {
+        console.log('success');
+        // console.log(response);
+        // add modal class on success
+        $("#modal-on").html(response.message);
+          $( "#modal-on" ).addClass( 'modal-on');
+          $( "#modal-back" ).addClass( 'modal-back');
+          $( "#modal-back" ).removeClass( "modal-off" );
+          if (response.status === "Success") {
+            $("#response2").html(response.message);
+            $('#response2').show();
+            setTimeout(function(){
+              $('#response2').hide();
+              window.location = "add-news.html";
+              }, 1000);
+          }
+          
+      },
+        error: function(xhr, status, error) {
+          console.log(xhr);
+        let resError = xhr.responseJSON.message;
+      //  console.log('error');
+      //  console.log(resError);
+        $("#response2").html(resError || xhr);
+        $('#response2').show();
+        setTimeout(() => {
+          $('#response2').hide();
+        }, 5000);
+        // Optionally alert the user of an error here...
+        }
+  });
+})
+$('#back').click(function() {
+  // remove modal on load of page
+	// $( "#modal" ).removeClass( 'modal');
+	// $( "#modal-back" ).removeClass( 'modal-back');
+  // $( "#modal-back" ).addClass( "modal-off" );
+  $( "#preview-back" ).removeClass( 'preview-back');
+  $( "#preview" ).removeClass( 'preview');
+  $('#preview-buttons').css('display', 'none');
+  $('#preview').css('display', 'none');
+
+//   if ($( "#modal" ).hasClass('modal')) {
+// 	$( "#modal" ).removeClass( 'modal');
+// 	$( "#modal-back" ).removeClass( 'modal-back');
+//   $( "#modal-back" ).addClass( "modal-off" );
+//   $( "#preview-back" ).removeClass( 'preview-back');
+//   $( "#preview" ).removeClass( 'preview');
+//   $('#preview-buttons').css('display', 'none');
+//   $('#preview').css('display', 'none');
+// }
+});
+}   
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  };
+     // Prevent the form from submitting via the browser
+       
+});
+  </script>
+</body>
+</html>

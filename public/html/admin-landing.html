@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANF-tv Admin webapp">
+  <link rel="icon" type="image/png" href="./public/Images/tv logo 2.png"/>
+  <title>ANF-Admin</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/header.css">
+  <link rel="stylesheet" href="../stylesheets/admin-landing.css">
+  <link rel="stylesheet" href="../stylesheets/footer.css">
+</head>
+<body>
+  <div class="modal" id="modal-background" onclick="closeNav()">
+    <div id="close" onclick="closeNav()">
+      <i class="fas fa-times"></i>
+    </div>
+      <div class="news-categories-mobile">
+        <ul id="news-list-container-mobile" class="news-cat-container">
+          <li id="news-mobile">
+            <a href="../index.html" id="news-link">News</a>
+          </li>
+          <li id="politics-mobile">
+            <a href="./category.html" id="politics-link">Politics</a>
+          </li>
+          <li id="sports-mobile">
+            <a href="./category.html" id="sports-link">Sports</a>
+          </li>
+          <li id="culture-mobile">
+            <a href="./category.html" id="culture-link">Culture</a>
+          </li>
+          <li id="business-mobile">
+            <a href="./category.html" id="business-link">Business</a>
+          </li>
+          <li id="entertainment-mobile">
+            <a href="./category.html" id="entertainment-link">Entertainment</a>
+          </li>
+          <li id="science-technology-mobile">
+            <a href="./category.html" id="science-technology-link">Technology</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <header id="header">
+      <nav id="navbar">
+        <div id="logo">
+          <img src="../Images/Untitled-2.png" alt="ANF-tv">
+        </div>
+        <div id="news-categories">
+          <ul id="news-list-container" class="news-cat-container">
+            <li id="news">
+              <a href="../index.html" id="news-link">News</a>
+            </li>
+            <li id="politics">
+              <a href="./category.html" id="politics-link">Politics</a>
+            </li>
+            <li id="sports">
+              <a href="./category.html" id="sports-link">Sports</a>
+            </li>
+            <li id="culture">
+              <a href="./category.html" id="culture-link">Culture</a>
+            </li>
+            <li id="business">
+              <a href="./category.html" id="business-link">Business</a>
+            </li>
+            <li id="entertainment">
+              <a href="./category.html" id="entertainment-link">Entertainment</a>
+            </li>
+            <li id="science-technology">
+              <a href="./category.html" id="science-technology-link">Technology</a>
+            </li>
+          </ul>
+        </div>
+        <div id="search">
+          <input type="search" name="search" placeholder="Search" id="search-input">
+          <button id="search-button">
+            <img id="search-img" src="../Images/Search.png" alt="search-icon" id="search-icon">
+          </button>
+        </div>
+        <div id="hamburger" onclick="openNav()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+      <details id="user">
+        <summary id="user-summary">
+          User
+        </summary>
+        <p id="user-profile">
+          Profile
+        </p>
+        <p onclick="logOut()" id="user-logout">
+          logout
+        </p>
+      </details>
+    </header>
+    <main id="main">
+      <section id="manage-news">
+        <a href="#" id="manage-news-button" class="manage-button">Manage News</a>
+        <div id="news-buttons" class="news-buttons">
+        <a href="./add-news.html" class="manage-button">Add News</a>
+        <a href="./edit-news.html" class="manage-button">Edit News</a>
+        <a href="#" class="manage-button">Delete News</a>
+      </div>
+      </section>
+      <section id="manage-users">
+        <a href="#" id="manage-user-button"  class="manage-button">Manage Users</a>
+        <div id="user-buttons" class="user-buttons">
+        <a href="#" class="manage-button">Add Users</a>
+        <a href="#" class="manage-button">View Users</a>
+        <a href="#" class="manage-button">Delete Users</a>
+      </div>
+      </section>
+    </main>
+  <footer id="footer">
+    <div id="anf-tv-ads">
+      <img class="footer-ads-img" src="../Images/Untitled-2.png" alt="" id="ad-img">
+    </div>
+    <div id="footer-nav">
+      <div id="left-p">
+        <p id="company" class="company">
+          <a class="footer-p-link" href="">Company </a>
+        </p>
+      </div>
+      <div id="center-icon">
+        <img src="../Images/Untitled-2.png" alt="Company Icon" id="company-icon" class="company-icon">
+      </div>
+      <div id="right-p">
+        <p id="helpdesk" class="helpdesk">
+          <a class="footer-p-link" href=""> Help desk </a>
+        </p>
+      </div>
+    </div>
+    <hr style="border: #2201f9 solid 0.5px;">
+    <div id="footer-contact">
+      <a href="https://web.facebook.com/watch/ANFTV.NET/" target="_blank">
+      <i class="fab fa-facebook"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" target="_blank">
+      <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCsGp2q5PC4i9zuOgx850fbQ" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <p id="footer-copy-right">
+      © ANF-tv, Inc. 2022. Thank you for visiting.
+    </p>
+  </footer>
+  <script src="../javascripts/admin-landing.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script  type="text/javascript">
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  // alert('done');
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+$(document).ready(function () {
+  let userName = getCookie("userName");
+  userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+  if (userName) {
+    $("#user-summary").html(userName);
+  }
+  });
+
+
+  </script>
+</body>
+</html>
