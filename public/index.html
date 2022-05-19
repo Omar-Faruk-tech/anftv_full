@@ -92,9 +92,9 @@
           </h1>
         </div>
         <div id="image-container">
-          <img style="display: none;" src="https://anf-tv.netlify.app/public/images/loading.png" alt="top-story-image" id="top-story-img">
+          <!-- <img style="display: none;" src="https://anf-tv.netlify.app/public/images/loading.png" alt="top-story-image" id="top-story-img"> -->
           <!-- <iframe style="display: none;" src="./public/Images/loading.png" frameborder="0" autoplay="0" id="top-story-vid"></iframe> -->
-          <video  src="" id="top-story-vid"></video>
+          <iframe src="" id="top-story-vid" frameborder="0" allowfullscreen></iframe>
         </div>
         <div id="slide-icon-container">
           <div class="slide-icon "></div>
@@ -103,7 +103,6 @@
           <div class="slide-icon"></div>
           <div class="slide-icon"></div>
         </div></div>
-    
   </header>
   <main id="hero">
     <div id="panel-div">
@@ -112,38 +111,17 @@
           <h2 id="left-hero-header">
               TOP STORIES
           </h2>
-          <div id="news-panel">
-
-            <div class="news-card">
+          <div id="news-panel"> <div class="news-card">
             <a class="news card-link">
-         
-            
-            </a>
-
+               </a>
             <a class="news card-link">
-
-             
               </a>
-
             <a class="news card-link">
-
-             
               </a>
-
             <a class="news card-link">
-
-             
               </a>
-
-            <a class="news card-link">
-             
-              
-              </a>
-            </div>
-            
-
-
-          </div>
+            <a class="news card-link"></a>
+            </div></div>
       </div>
     </section>
     <section id="right-panel">
@@ -240,7 +218,8 @@
   crossorigin="anonymous"></script>
 
   <script type="text/javascript">
-    function setCookie(cname, cvalue, exdays) {
+
+  function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
@@ -292,6 +271,7 @@
       span.innerHTML = data._id;
       container.insertBefore(span, container.childNodes[0])
     };
+    
     function checkMediaType(b64) {
     let b64Type = b64.split(",")[0];
     if (b64Type.includes("image")) {
@@ -303,7 +283,6 @@
     }
     };
     
-    // console.log('counter =', startCounter(6));
 
     var topStoryLinks = document.getElementsByClassName("news card-link");
     var topStorySlides = document.getElementById('top-stories');
@@ -312,8 +291,7 @@
     var featuredContainer = document.getElementById("featured-links");
     var catContainer = document.getElementsByClassName("card");
     var sub = document.getElementById('subject');
-    // console.log(sub);
-    var img = document.getElementById('top-story-img');
+    // var img = document.getElementById('top-story-img');
     var vid = document.getElementById('top-story-vid');
     var slideIcon = document.getElementsByClassName('slide-icon');
 
@@ -331,54 +309,13 @@
         const featured = response[2];
         const topInCat = response[3];
 
-        
-
-        // setInterval(() => {
-        //   let mediaType = checkMediaType(topStories[current].media);
-        //   // console.log(checkMediaType(topStories[current].media));
-        //   let idStore = document.getElementById('id-store-1');
-        //   // if (topStorySlides.firstChild.nodeName == "span") {
-        //   //   idStore.innerHTML = topStories[current].id;
-        //   // } else {
-        //     // storeId(topStories[current], topStorySlides);
-        //   // };
-        //   idStore.innerHTML = topStories[current]._id;
-        //   sub.innerHTML = shortenStr(topStories[current].subject, 40);
-        //   if (mediaType == "video") {
-        //       img.style.display = "none";
-        //       vid.style.display = "block";
-        //       vid.src = topStories[current].media;
-        
-        //   } else if (mediaType == "image") {
-        //     vid.style.display = "none";
-        //     img.style.display = "block";
-        //     img.src = topStories[current].media;
-            
-        //   };
-          
-        //   for (let i = 0; i < slideIcon.length; i++) {
-        //     if (slideIcon[i].classList.contains('current-slide-icon')) {
-        //       slideIcon[i].classList.remove('current-slide-icon');
-        //     }
-        //   };
-        //   current = startCounter(current);
-        //   slideIcon[current].classList.add('current-slide-icon');
-        // }, 6000);
         let current = 0;
         function changeImg() {
           let mediaType = checkMediaType(topStories[current].media);
           let idStore = document.getElementById('id-store-1');
           idStore.innerHTML = topStories[current]._id;
           sub.innerHTML = shortenStr(topStories[current].subject, 40);
-          if (mediaType == "video") {
-              img.style.display = "none";
-              vid.style.display = "block";
               vid.src = topStories[current].media;
-          } else if (mediaType == "image") {
-            vid.style.display = "none";
-            img.style.display = "block";
-            img.src = topStories[current].media;
-          };
           for (let i = 0; i < slideIcon.length; i++) {
           if (slideIcon[i].classList.contains('current-slide-icon')) {
             slideIcon[i].classList.remove('current-slide-icon');

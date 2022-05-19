@@ -71,8 +71,12 @@ $(function() {
 	$( "#modal" ).removeClass( 'modal');
 	$( "#modal-back" ).removeClass( 'modal-back');
   $( "#modal-back" ).addClass( "modal-off" );
-}
+};
 });
+      setCookie("token", "", 0);
+      setCookie("userName", "", 0);
+      setCookie("email", "", 0);
+
   $('#form').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
         var userName = $("#username-input").val().toLowerCase();

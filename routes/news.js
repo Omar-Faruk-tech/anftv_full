@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const newsControllers = require('../controllers/news');
-const jwtAuth = require('../middleware/auth')
+const { jwtAuth } = require('../middleware/auth');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -21,9 +21,9 @@ router.get('/:categoryName/:id', newsControllers.newsControllers.getByCategory);
 router.get('/:id', newsControllers.newsControllers.getOne);
 
 //endpoint to delete a single news with its id
-router.delete('/delete/:id', newsControllers.newsControllers.deleteNews);
+router.delete('/delete/:id', jwtAuth.verifyAdmin, newsControllers.newsControllers.deleteNews);
 
 //endpoint to update a single news with its id
-router.put('/update/:id', newsControllers.newsControllers.updateNews);
+router.put('/update/:id', jwtAuth.verifyAdmin, newsControllers.newsControllers.updateNews);
 
 module.exports = router;

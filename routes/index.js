@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const newsControllers = require('../controllers/news');
+const { jwtAuth } = require('../middleware/auth');
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -9,6 +10,9 @@ const newsControllers = require('../controllers/news');
 
 // get landing page data
 router.get('/landing', newsControllers.newsControllers.getLanding);
+
+// verify users
+router.get('/verify', jwtAuth.verifyLogger);
 
 
 module.exports = router;

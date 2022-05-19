@@ -158,6 +158,7 @@
   crossorigin="anonymous"></script>
   <script  type="text/javascript">
 
+
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -183,6 +184,24 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
+  let token = getCookie("token");
+  if (!token) {
+    window.location = '/html/admin-login.html';
+  };
+  $.ajax({
+        type: "GET",
+        headers: {
+          "authorization": `Bearer ${token}`
+        },
+        url: '/verify',
+        processData: false,
+        success: function (response) {
+          console.log(true);
+      },
+        error: function(xhr, status, error) {
+          // window.location = '/html/admin-login.html';
+        }
+  });
   let userName = getCookie("userName");
   userName = userName.charAt(0).toUpperCase() + userName.slice(1);
   if (userName) {

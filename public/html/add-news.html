@@ -152,8 +152,10 @@
         <input type="checkbox" name="editors-pick" id="editors-pick">
         </div>
         <div id="media">
-          <label for="media" id="media-upload-label">Media</label>
+          <label for="media" id="media-upload-label">Image</label>
           <input type="file"  id="media-upload-input" name="media" accept="video/*image/*">
+          <label for="media" id="media-upload-label">Video url</label>
+          <input type="text"  id="link-upload-input" name="link">
       </div>
       <!-- <div id="link">
         <label for="link" id="link-label">Link</label>
@@ -214,6 +216,7 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
   <script src="../javascripts/index.js"></script>
+  <!-- <script src="../javascripts/logout.js"></script> -->
   <script type="text/javascript">
 
 const toBase64 = file => new Promise((resolve, reject) => {
@@ -248,21 +251,23 @@ $(document).ready(function () {
   $( "#preview-back" ).removeClass( 'preview-back');
   $( "#preview" ).removeClass( 'preview');
   $('#preview-buttons').css('display', 'none');
-}
+};
   let userName = getCookie("userName");
   userName = userName.charAt(0).toUpperCase() + userName.slice(1);
   if (userName) {
     $("#user-summary").html(userName);
   }
   });
-$('#add-news-submit').click(function(event) {
+$('#add-news-submit').click(async function(event) {
   event.preventDefault(); // Prevent the form from submitting via the browser
 
   let uploadedFile = document.getElementById('media-upload-input').files[0];
-  if (!uploadedFile) {
-    // console.log('Please attach media');
+  let uploadedLink = document.getElementById('link-upload-input').value;
+  let medium = uploadedLink || uploadedFile;
+  if (!medium) {
           $("#response").html('Please attach media');
   } else {
+    $("#response").html('');
     if ($( "#modal-back" ).hasClass('modal-back')) {
 	$( "#modal" ).removeClass( 'modal');
 	$( "#modal-back" ).removeClass( 'modal-back');
@@ -273,19 +278,23 @@ $('#add-news-submit').click(function(event) {
 }
 
 
-    toBase64(uploadedFile)
-  .then((res) => {
-    // console.log(res);
-    let mediaBase64 = res;
-    // console.log(mediaBase64);
+    let mediaBase64;
+    let displayFile;
+    if (typeof medium == "string") {
+      const newUrl = medium.replace("watch?v=", "embed/");
+      mediaBase64 = newUrl;
+      displayFile = medium;
+    } else {
+      mediaBase64 = await toBase64(medium);
+      displayFile = medium.name;
+    };
+
     var subject = $("#subject-input").val();
         var category = $("#category").val().toLowerCase();
         var editorsPick = $("#editors-pick").prop('checked');
         var topStory = $("#top-story").prop('checked');
         var media = mediaBase64;
         var content = $("#content").val();
-        // console.log(editorsPick);
-        // console.log(topStory);
         var news = {
               subject,
               category,
@@ -294,16 +303,17 @@ $('#add-news-submit').click(function(event) {
               media,
               content
         };
-        // console.log(content);
+
         var newsData = JSON.stringify(news);
         if ((subject == "") || 
             (category == "") || 
             (media == "") || 
             (content == "")) {
-          // console.log('Please fill all input fields');
 
           $("#response").html('Please fill all input fields');
         } else {
+
+          
       $( "#preview-back" ).addClass( 'preview-back');
       $( "#preview" ).addClass( 'preview');
       $('#preview').css('display', 'block');
@@ -312,7 +322,7 @@ $('#add-news-submit').click(function(event) {
       $("#preview-category").html(`Category: <br> ${category} <br><br>`);
       $("#preview-checkbox").html(`<span>Top Story: ${topStory}</span> <br><br>
       <span>Editors Pick: ${editorsPick}</span><br><br>`);
-      $("#preview-media").html(`Media: <br> ${uploadedFile.name}<br><br>`);
+      $("#preview-media").html(`Media: <br> ${displayFile}<br><br>`);
       $("#preview-content").html(`Content: <br> ${content}<br><br>`);
 
     
@@ -326,8 +336,6 @@ $('#add-news-submit').click(function(event) {
         processData: false,
         success: function (response) {
         console.log('success');
-        // console.log(response);
-        // add modal class on success
         $("#modal-on").html(response.message);
           $( "#modal-on" ).addClass( 'modal-on');
           $( "#modal-back" ).addClass( 'modal-back');
@@ -344,46 +352,21 @@ $('#add-news-submit').click(function(event) {
       },
         error: function(xhr, status, error) {
           console.log(xhr);
-        let resError = xhr.responseJSON.message;
-      //  console.log('error');
-      //  console.log(resError);
-        $("#response2").html(resError || xhr);
         $('#response2').show();
         setTimeout(() => {
           $('#response2').hide();
         }, 5000);
-        // Optionally alert the user of an error here...
         }
   });
 })
 $('#back').click(function() {
-  // remove modal on load of page
-	// $( "#modal" ).removeClass( 'modal');
-	// $( "#modal-back" ).removeClass( 'modal-back');
-  // $( "#modal-back" ).addClass( "modal-off" );
   $( "#preview-back" ).removeClass( 'preview-back');
   $( "#preview" ).removeClass( 'preview');
   $('#preview-buttons').css('display', 'none');
   $('#preview').css('display', 'none');
-
-//   if ($( "#modal" ).hasClass('modal')) {
-// 	$( "#modal" ).removeClass( 'modal');
-// 	$( "#modal-back" ).removeClass( 'modal-back');
-//   $( "#modal-back" ).addClass( "modal-off" );
-//   $( "#preview-back" ).removeClass( 'preview-back');
-//   $( "#preview" ).removeClass( 'preview');
-//   $('#preview-buttons').css('display', 'none');
-//   $('#preview').css('display', 'none');
-// }
 });
-}   
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+} 
   };
-     // Prevent the form from submitting via the browser
-       
 });
   </script>
 </body>

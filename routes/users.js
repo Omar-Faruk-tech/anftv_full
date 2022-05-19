@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/users');
-const jwtAuth = require('../middleware/auth');
+const { jwtAuth } = require('../middleware/auth');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -9,16 +9,16 @@ router.get('/', function(req, res, next) {
 });
 
 // Create a new user 
-router.post('/create', usersController.userController.createUser);
+router.post('/create', jwtAuth.verifyAdmin, usersController.userController.createUser);
 
 // get single user
 router.get('/:id', usersController.userController.getSingleUser);
 
 // get all users
-router.post('/all', usersController.userController.getAllUsers);
+router.post('/all', jwtAuth.verifyAdmin, usersController.userController.getAllUsers);
 
 //update user record
-router.put('/update/:id', usersController.userController.updateUser);
+router.put('/update/:id', jwtAuth.verifyLogger, usersController.userController.updateUser);
 
 //user sign in
 router.post('/signin', usersController.userController.userLogin);
