@@ -265,11 +265,13 @@
     };
 
     function storeId(data, container) {
-      let span = document.createElement('span');
-      span.style.display = "none";
-      // span.id = data.id;
-      span.innerHTML = data._id;
-      container.insertBefore(span, container.childNodes[0])
+      if (data) {
+        let span = document.createElement('span');
+        span.style.display = "none";
+        // span.id = data.id;
+        span.innerHTML = data._id;
+        container.insertBefore(span, container.childNodes[0]);
+      }
     };
     
     function checkMediaType(b64) {
@@ -311,7 +313,6 @@
 
         let current = 0;
         function changeImg() {
-          let mediaType = checkMediaType(topStories[current].media);
           let idStore = document.getElementById('id-store-1');
           idStore.innerHTML = topStories[current]._id;
           sub.innerHTML = shortenStr(topStories[current].subject, 40);
@@ -332,22 +333,18 @@
 
         for (let i = 0; i < topStoryContainer.length; i++) {
           // for top stories
-          let mediaType = checkMediaType(topStories[i].media);
           storeId(topStories[i], topStoryContainer[i]);
-          if (mediaType == "image") {
+          if (topStories[i].media) {
             var topMedia = document.createElement('iframe');
             topMedia.classList.add('news-card-img');
             topMedia.setAttribute("alt", "news image");
             topMedia.src = topStories[i].media;
-          } else if (mediaType == "video") {
-            var topMedia = document.createElement('iframe');
-            topMedia.classList.add('news-card-img');
-            topMedia.src = topStories[i].media;
-          }
           
           var topPara = document.createElement('p');
           topPara.innerHTML = shortenStr(topStories[i].subject, 80);
           topPara.classList.add('news-card-title');
+
+          }
 
           if (topStoryContainer[i]) {
             topStoryContainer[i].appendChild(topMedia);
@@ -412,7 +409,7 @@
           catCardh.innerHTML = topInCat[i].category;
 
           catContainer[i].insertBefore(catCardh, catContainer[i].childNodes[0]);
-          
+
           catContainer[i].appendChild(catCardp);
           }
           
