@@ -335,12 +335,12 @@
           let mediaType = checkMediaType(topStories[i].media);
           storeId(topStories[i], topStoryContainer[i]);
           if (mediaType == "image") {
-            var topMedia = document.createElement('img');
+            var topMedia = document.createElement('iframe');
             topMedia.classList.add('news-card-img');
             topMedia.setAttribute("alt", "news image");
             topMedia.src = topStories[i].media;
           } else if (mediaType == "video") {
-            var topMedia = document.createElement('video');
+            var topMedia = document.createElement('iframe');
             topMedia.classList.add('news-card-img');
             topMedia.src = topStories[i].media;
           }
@@ -397,18 +397,13 @@
              
         if (topInCat[i]) {
           let mediaType = checkMediaType(topStories[i].media);
-          if (mediaType == "image") {
-            let catCardImg = document.createElement('img');
+
+            let catCardImg = document.createElement('iframe');
             catCardImg.classList.add('category-card-img');
             catCardImg.src = topInCat[i].media;
             catCardImg.setAttribute("alt", "news image");
             catContainer[i].appendChild(catCardImg);
-          } else if (mediaType == "video") {
-            let catCardImg = document.createElement('video');
-            catCardImg.classList.add('category-card-vid');
-            catCardImg.src = topInCat[i].media;
-            catContainer[i].appendChild(catCardImg);
-          };
+          
           let catCardp = document.createElement('p');
           catCardp.classList.add('category-card-p');
           catCardp.innerHTML = shortenStr(topInCat[i].subject, 80);
@@ -416,9 +411,8 @@
           catCardh.classList.add('card-header');
           catCardh.innerHTML = topInCat[i].category;
 
-          // storeId(topInCat[i], catContainer[i]);
           catContainer[i].insertBefore(catCardh, catContainer[i].childNodes[0]);
-          // catContainer[i].appendChild(catCardh);
+          
           catContainer[i].appendChild(catCardp);
           }
           
