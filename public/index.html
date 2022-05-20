@@ -315,8 +315,8 @@
         function changeImg() {
           let idStore = document.getElementById('id-store-1');
           idStore.innerHTML = topStories[current]._id;
-          sub.innerHTML = shortenStr(topStories[current].subject, 40);
-              vid.src = topStories[current].media;
+          sub.innerHTML = shortenStr(topStories[current].subject, 140);
+          vid.src = topStories[current].media;
           for (let i = 0; i < slideIcon.length; i++) {
           if (slideIcon[i].classList.contains('current-slide-icon')) {
             slideIcon[i].classList.remove('current-slide-icon');
@@ -338,10 +338,11 @@
             var topMedia = document.createElement('iframe');
             topMedia.classList.add('news-card-img');
             topMedia.setAttribute("alt", "news image");
+            topMedia.allowFullscreen = true;
             topMedia.src = topStories[i].media;
           
           var topPara = document.createElement('p');
-          topPara.innerHTML = shortenStr(topStories[i].subject, 80);
+          topPara.innerHTML = shortenStr(topStories[i].subject, 180);
           topPara.classList.add('news-card-title');
 
           }

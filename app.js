@@ -13,7 +13,7 @@ var app = express();
 
 mongoose.connect(process.env.MONGO_URL, { 
   useNewUrlParser: true, 
-  useUnifiedTopology: true 
+  useUnifiedTopology: true
 }, err => {
   if (err) {
     console.log

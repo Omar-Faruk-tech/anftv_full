@@ -35,7 +35,7 @@
   display: none;
 }
 header{
-  font-family: 'Acme', sans-serif;
+  font-family: 'Roboto Flex', sans-serif;
 }
 #header{
   display: flex;
@@ -152,16 +152,17 @@ div img {
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
+  margin: 20px;
   background-color: #2201f969;
 }
 #image-container #top-story-img{
   height: 100%;
-  width: 70%;
+  width: 100%;
   padding: 1px;
 }
 #image-container #top-story-vid{
   height: 100%;
-  width: 70%;
+  width: 100%;
   padding: 1px;
 }
 #slide-icon-container{
