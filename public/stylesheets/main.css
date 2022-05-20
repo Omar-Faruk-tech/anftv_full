@@ -163,6 +163,7 @@ a .featured-list:hover{
   overflow: hidden;
 }
 .category-card-vid{
+  object-fit: contain;
   max-height: 100%;
   max-width: 100%;
   overflow: hidden;

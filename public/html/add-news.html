@@ -288,7 +288,7 @@ $('#add-news-submit').click(async function(event) {
       mediaBase64 = await toBase64(medium);
       displayFile = medium.name;
     };
-
+    // console.log(mediaBase64);
     var subject = $("#subject-input").val();
         var category = $("#category").val().toLowerCase();
         var editorsPick = $("#editors-pick").prop('checked');

@@ -118,4 +118,4 @@ exports.userController = {
               console.log(err);
       })
   }
-}
+};

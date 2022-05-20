@@ -1,7 +1,7 @@
 const news = require('../models/news');
 
 exports.newsControllers = {
-  createNews: (req, res) => {
+createNews: (req, res) => {
     const newsObj = new news(req.body);
     let category = newsObj.category;
     category = category.toLowerCase();
@@ -221,5 +221,37 @@ updateNews: (req, res) => {
          massage: "invalid category"
        })
   }
-}
+},
+getTopStories: async (req, res) => {
+  try {
+    const { page, limit } = req.query;
+    const skip = limit * (page - 1);
+    const options = {
+      skip,
+      limit
+    };
+    const topStories = await news.find({ topStory: true }, null, options).exec();
+    if (!topStories) {
+      res.status(400)
+          .send({
+            status: "failed",
+            message: "record not found"
+          });
+          return;
+    }
+    res.status(200)
+      .send({
+        success: true,
+        data: topStories
+      });
+  } catch (err) {
+    console.log(err);
+        res.status(400)
+          .send({
+            status: "failed",
+            message: err.massage || "could not get records"
+          })
+          return;
+  }
+},
 }
