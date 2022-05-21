@@ -1,4 +1,4 @@
-let warningTimeout = 300000;
+let warningTimeout = 60000;
 let warningTimerID;
 let counterDisplay = document.getElementById('numCount');
 logoutUrl = `http://localhost:3050/html/admin-login.html`;
