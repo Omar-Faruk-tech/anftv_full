@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 //endpoint to create news
-router.post('/create', newsControllers.newsControllers.createNews);
+router.post('/create', jwtAuth.verifyAdmin, newsControllers.newsControllers.createNews);
 
 //endpoint to fetch all news new - to - old
 router.get('/all', newsControllers.newsControllers.getAllNews);

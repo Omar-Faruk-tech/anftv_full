@@ -1,4 +1,4 @@
-let warningTimeout = 5000;
+let warningTimeout = 300000;
 let warningTimerID;
 let counterDisplay = document.getElementById('numCount');
 logoutUrl = `http://localhost:3050/html/admin-login.html`;
@@ -6,7 +6,6 @@ logoutUrl = `http://localhost:3050/html/admin-login.html`;
 function startTimer() {
   // window.setTimeout returns an ID that can be used to start and stop the timer
   warningTimerID = window.setTimeout(idleLogout, warningTimeout);
-  animate(counterDisplay, 5, 0, warningTimeout);
 }
   //function for resetting the timer
 function resetTimer() {

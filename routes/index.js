@@ -12,7 +12,12 @@ const { jwtAuth } = require('../middleware/auth');
 router.get('/landing', newsControllers.newsControllers.getLanding);
 
 // verify users
-router.get('/verify', jwtAuth.verifyLogger);
+router.get('/verify', jwtAuth.verifyLogger, function(req, res) {
+    return {
+        success: true, 
+        message: "verification success"
+    }
+});
 
 
 module.exports = router;

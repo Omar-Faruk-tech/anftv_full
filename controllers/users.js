@@ -6,6 +6,7 @@ require('dotenv').config();
 exports.userController = {
   createUser: async (req, res) => {
     newUser = req.body;
+    newUser.userName = newUser.userName.toLowerCase();
     newUser.password = bcrypt.hashSync(newUser.password, 10);
     await users.init();
     try {
@@ -79,6 +80,7 @@ exports.userController = {
       }) 
   },
   userLogin: (req, res) => {
+    req.body.userName = req.body.userName.toLowerCase();
     users
       .findOne({userName: req.body.userName})
         .then((userObj) => {
@@ -92,6 +94,7 @@ exports.userController = {
       if(!isValidPassword) {
       return res.status(401)
                 .send({
+            success: false,
             message: "Invalid username or password"
           });
         }

@@ -12,6 +12,37 @@
   <link rel="stylesheet" href="../stylesheets/header.css">
   <link rel="stylesheet" href="../stylesheets/add-news.css">
   <link rel="stylesheet" href="../stylesheets/footer.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+  var token = getCookie("token");
+  if (!token) {
+    window.location = '/html/admin-login.html';
+  };
+  $.ajax({
+        type: "GET",
+        headers: {
+          "authorization": `Bearer ${token}`
+        },
+        url: '/verify',
+        processData: false,
+        success: function (response) {
+          console.log(true);
+      },
+        error: function(xhr, status, error) {
+          // window.location = '/html/admin-login.html';
+        }
+  });
+  let userName = getCookie("userName");
+  userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+  if (userName) {
+    $("#user-summary").html(userName);
+  }
+  });
+  </script>
 </head>
 <body >
   <div id="modal-back">
@@ -211,13 +242,21 @@
       © ANF-tv, Inc. 2022. Thank you for visiting.
     </p>
   </footer>
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
   <script src="../javascripts/index.js"></script>
-  <!-- <script src="../javascripts/logout.js"></script> -->
+  <script src="../javascripts/logout.js"></script>
   <script type="text/javascript">
+
+var token = getCookie("token");
+$(document).ready(function () {
+  if (!token) {
+    window.location = '/html/admin-login.html';
+  };
+  let userName = getCookie("userName");
+  userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+  if (userName) {
+    $("#user-summary").html(userName);
+  }
+  });
 
 const toBase64 = file => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -329,7 +368,10 @@ $('#add-news-submit').click(async function(event) {
   $('#confirm').click(function() {
       $.ajax({
         type: "POST",
-        contentType: "application/json",
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": `Bearer ${token}`
+        },
         dataType: "json",
         url: '/news/create',
         data: newsData,

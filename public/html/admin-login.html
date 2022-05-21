@@ -9,6 +9,10 @@
   <title>ANF-Admin</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <link rel="stylesheet" href="../stylesheets/admin-login.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="modal-back">
@@ -51,11 +55,6 @@
       </form>
   </div>
   <script src="../javascripts/index.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-
   <script type="text/javascript">
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
@@ -63,7 +62,7 @@ function setCookie(cname, cvalue, exdays) {
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   // alert('done');
-}
+};
 
 $(function() {
   $(document).ready(function () {
@@ -79,7 +78,8 @@ $(function() {
 
   $('#form').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
-        var userName = $("#username-input").val().toLowerCase();
+    
+        var userName = $("#username-input").val();
         var password = $("#password-input").val();
         var login = {
               userName,

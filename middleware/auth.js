@@ -28,10 +28,8 @@ exports.jwtAuth = {
 
     verify(token, process.env.secret, (err, decode) => {
       if (err) return res.status(400).send({ message: "forbidden access" });
-      console.log(decode.userType);
       if (decode.userType !== "admin")
         return res.status(401).send({ message: "forbidden access 2" });
-        
       next();
     });
   },
