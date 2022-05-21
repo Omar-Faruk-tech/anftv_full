@@ -254,4 +254,68 @@ getTopStories: async (req, res) => {
           return;
   }
 },
+getEditorsPick: async (req, res) => {
+  try {
+    const { page, limit } = req.query;
+    const skip = limit * (page - 1);
+    const options = {
+      skip,
+      limit
+    };
+    const editorsPick = await news.find({ editorsPick: true }, null, options).exec();
+    if (!editorsPick) {
+      res.status(400)
+          .send({
+            status: false,
+            message: "record not found"
+          });
+          return;
+    }
+    res.status(200)
+      .send({
+        success: true,
+        data: editorsPick
+      });
+  } catch (err) {
+    console.log(err);
+        res.status(400)
+          .send({
+            status: "failed",
+            message: err.massage || "could not get records"
+          })
+          return;
+  }
+},
+getFeatured: async (req, res) => {
+  try {
+    const { page, limit } = req.query;
+    const skip = limit * (page - 1);
+    const options = {
+      skip,
+      limit
+    };
+    const featured = await news.find({ featured: true }, null, options).exec();
+    if (!featured) {
+      res.status(400)
+          .send({
+            status: false,
+            message: "record not found"
+          });
+          return;
+    }
+    res.status(200)
+      .send({
+        success: true,
+        data: featured
+      });
+  } catch (err) {
+    console.log(err);
+        res.status(400)
+          .send({
+            status: "failed",
+            message: err.massage || "could not get records"
+          })
+          return;
+  }
+},
 }

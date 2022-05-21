@@ -20,6 +20,12 @@ router.get('/:categoryName/:id', newsControllers.newsControllers.getByCategory);
 //endpoint to fetch news by category 10 at a time
 router.get('/top-stories', newsControllers.newsControllers.getTopStories);
 
+//endpoint to fetch news by category 10 at a time
+router.get('/editors-pick', newsControllers.newsControllers.getEditorsPick);
+
+//endpoint to fetch news by category 10 at a time
+router.get('/featured', newsControllers.newsControllers.getFeatured);
+
 //endpoint to fetch a single news with its id
 router.get('/:id', newsControllers.newsControllers.getOne);
 

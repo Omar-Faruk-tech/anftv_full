@@ -181,6 +181,8 @@
         <input type="checkbox" name="top-story" id="top-story">
         <label for="editors-pick">Editor's pick</label>
         <input type="checkbox" name="editors-pick" id="editors-pick">
+        <label for="featured">Featured</label>
+        <input type="checkbox" name="featured" id="featured">
         </div>
         <div id="media">
           <label for="media" id="media-upload-label">Image</label>
@@ -332,6 +334,7 @@ $('#add-news-submit').click(async function(event) {
         var category = $("#category").val().toLowerCase();
         var editorsPick = $("#editors-pick").prop('checked');
         var topStory = $("#top-story").prop('checked');
+        var featured = $("#featured").prop('checked');
         var media = mediaBase64;
         var content = $("#content").val();
         var news = {
@@ -339,6 +342,7 @@ $('#add-news-submit').click(async function(event) {
               category,
               topStory,
               editorsPick,
+              featured,
               media,
               content
         };

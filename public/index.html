@@ -307,7 +307,7 @@
         
 
         const topStories = response[0];
-        const editorsPick = response[1];
+        // const editorsPick = response[1];
         const featured = response[2];
         const topInCat = response[3];
 
@@ -331,7 +331,55 @@
 
         window.onload = changeImg();
 
-        // console.log(editorsPick);
+        // add modal class on success
+      },
+        error: function(xhr, status, error) {
+          // console.log(xhr);
+        let resError = xhr.statusText
+       console.log('error');
+       console.log(resError);
+        $("#response").html(resError);
+        // Optionally alert the user of an error here...
+        }
+  });
+    });
+
+  // getting and rendering featured
+  $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        url: '/news/featured?page=1&limit=4',
+        success: function (response) {
+          const featured = response.data;
+          console.log(response);
+
+          for (let i = 0; i < 30; i++) {
+             // for featured
+          if (featured[i]) {
+          var featuredList = document.createElement('li');
+          let featuredListWrap = document.createElement('a');
+          featuredListWrap.classList.add('featured-list-link')
+          featuredList.classList.add('featured-list');
+          storeId(featured[i], featuredListWrap);
+          featuredListWrap.appendChild(featuredList);
+          
+            featuredList.innerHTML = shortenStr(featured[i].subject, 80);
+            featuredContainer.appendChild(featuredListWrap);
+          };
+            
+          };
+        }
+      });
+});
+
+// getting and rendering editors pick
+    $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        url: '/news/editors-pick?page=1&limit=4',
+        success: function (response) {
+          // console.log(editorsPick);
+        const editorsPick = response.data;
         let len = editorsPick.length;
         if(editorsPick.len > 30) {
           len = 30;
@@ -352,37 +400,11 @@
           };
             
           };
-          for (let i = 0; i < 30; i++) {
-             // for featured
-          if (featured[i]) {
-          var featuredList = document.createElement('li');
-          let featuredListWrap = document.createElement('a');
-          featuredListWrap.classList.add('featured-list-link')
-          featuredList.classList.add('featured-list');
-          storeId(featured[i], featuredListWrap);
-          featuredListWrap.appendChild(featuredList);
-          
-          
-            featuredList.innerHTML = shortenStr(featured[i].subject, 80);
-            featuredContainer.appendChild(featuredListWrap);
-          };
-            
-          };
-
-        // add modal class on success
-      },
-        error: function(xhr, status, error) {
-          // console.log(xhr);
-        let resError = xhr.statusText
-       console.log('error');
-       console.log(resError);
-        $("#response").html(resError);
-        // Optionally alert the user of an error here...
         }
-  });
+      });
+});
 
-    });
-
+//getting and rendering top stories
   $(document).ready(function () {
       $.ajax({
         type: "GET",

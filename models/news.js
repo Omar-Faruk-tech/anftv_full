@@ -17,6 +17,9 @@ const news = new mongoose.Schema({
   editorsPick: {
     type: Boolean
   },
+  featured: {
+    type: Boolean
+  },
   media: {
     type: String
   },
