@@ -147,24 +147,15 @@
   <script type="text/javascript">
   $( document ).ready(function() {
     let news = JSON.parse(sessionStorage.getItem('clickedNews'));
-    console.log(news);
-    let b64Type = news.media.split(",")[0];
     let b64 = news.media;
     // console.log(b64Type);
     $('#write-up').html(news.content);
 
-    if (b64Type.includes("image")) {
-      let img = document.createElement('img');
-      img.id = "image"
-      img.setAttribute("alt", "news image");
-      img.src = b64;
-      $("#video-container").append(img);
-    } else if (b64Type.includes("video")) {
       let iframe = document.createElement('iframe');
-      iframe.id = "video"
+      iframe.setAttribute("scrolling", "no");
+      iframe.id = "video";
       iframe.src = b64;
       $("#video-container").append(iframe);
-    }
     
   });
   </script>

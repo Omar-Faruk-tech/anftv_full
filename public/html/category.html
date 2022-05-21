@@ -252,7 +252,7 @@ function setCookie(cname, cvalue, exdays) {
         // add modal class on success 
         for (let i = 0; i < response.length; i++) {
           storeId(response[i], summaryContainer[i]);
-          let media = document.createElement("img");
+          let media = document.createElement("iframe");
           let caption  = document.createElement("p");
           caption.classList.add('caption');
           summaryContainer[i].appendChild(caption);
